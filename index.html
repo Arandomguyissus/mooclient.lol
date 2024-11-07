@@ -5,593 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moo Client</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            background: linear-gradient(270deg, #005b96, #33a8ff, #005b96, #33a8ff);
+            background-size: 800% 800%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            align-items: center;
+        }
 
-body {
-    background: linear-gradient(270deg, #005b96, #33a8ff, #005b96, #33a8ff);
-    background-size: 800% 800%;
-    animation: gradient 15s ease infinite;
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+        .features-section {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-}
+        .features-text img {
+            max-width: 60%;
+            height: auto;
+            margin-bottom: 20px;
+        }
 
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 20px;
-}
+        .features-text p {
+            color: white;
+            text-shadow: -1px -1px 0 #33a8ff, 1px -1px 0 #33a8ff, -1px 1px 0 #33a8ff, 1px 1px 0 #33a8ff;
+            max-width: 800px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
 
-.download-section {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 40px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 1000px;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
 
-.left-content {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .button {
+            padding: 12px 24px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(45deg, #0093e9, #80d0c7);
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            min-width: 160px;
+        }
 
-.left-image {
-    max-width: 100%;
-    height: auto;
-}
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
 
-.right-content {
-    flex: 2;
-    padding: 20px;
-}
-
-.download-section p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    position: relative;
-    color: white;
-    text-shadow: 
-        -1px -1px 0 #33a8ff,  
-        1px -1px 0 #33a8ff, 
-        -1px 1px 0 #33a8ff, 
-        1px 1px 0 #33a8ff;
-}
-
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 55vh;
-    object-fit: cover;
-    filter: blur(15px);
-    z-index: 1;
-}
-
-.download-section .content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 30px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 800px;
-}
-
-.download-section .logo {
-    height: auto;
-    margin-bottom: 20px;
-    animation: bounce 2s infinite;
-    max-width: 80%;
-}
-
-.download-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.download-button {
-    background: #33a8ff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.download-button i {
-    font-size: 1.5em;
-}
-
-.download-button:hover {
-    background: #005b96;
-    transform: scale(1.1);
-}
-
-.reasons-section {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 100px;
-}
-
-.reviews-section {
-    position: relative;
-    padding-bottom: 100px;
-}
-
-.bottom-right-image {
-    position: absolute;
-    bottom: 0px;
-    right: 20px;
-    width: 260px;
-    height: auto;
-    border-radius: 15px;
-}
-
-.reasons-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.reasons-section ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 1.2em;
-}
-
-.reasons-section li {
-    background: rgba(255, 255, 255, 0.1);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 400;
-    transition: transform 0.3s, background 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.reasons-section li i {
-    font-size: 1.5em;
-}
-
-.reasons-section li:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
-}
-
-.questions-section {
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.questions-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-}
-
-.accordion-item {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
-
-.accordion-button {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: none;
-    padding: 15px;
-    width: 100%;
-    text-align: left;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s;
-}
-
-.accordion-button i {
-    font-size: 1.5em;
-}
-
-.accordion-button.active {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-.accordion-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    padding: 0 15px;
-    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 0 0 10px 10px;
-}
-
-.reviews-section {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 1200px;
-    width: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin: 0 auto 40px;
-}
-
-.reviews-section h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.reviews-videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-placeholder {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-}
-
-.video-placeholder iframe,
-.video-placeholder video {
-    width: 100%;
-    height: 315px;
-    border: none;
-}
-
-.video-placeholder p {
-    color: white;
-    padding: 10px;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 1em;
-    font-weight: 600;
-}
-
-.features-section {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 1200px;
-    width: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    margin: 0 auto 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.features-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-}
-
-.features-text {
-    flex: 1;
-    padding: 20px;
-    color: white;
-    text-shadow: 
-        -1px -1px 0 #33a8ff,  
-        1px -1px 0 #33a8ff, 
-        -1px 1px 0 #33a8ff, 
-        1px 1px 0 #33a8ff;
-}
-
-.features-text h2 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.features-text p {
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-.features-text ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 10px 0 0 0;
-}
-
-.features-text ul li {
-    font-size: 1.1em;
-    color: white;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.features-text ul li i {
-    margin-right: 10px;
-    color: #ffffff;
-    font-size: 1.5em;
-}
-
-.features-image {
-    flex: 1;
-    text-align: center;
-}
-
-.features-image img {
-    max-width: 81%;
-    max-height: 600px;
-    border-radius: 15px;
-}
-
-@media (max-width: 768px) {
-    .features-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .features-text, .features-image {
-        flex: unset;
-        width: 100%;
-    }
-}
-
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #004370;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #33a8ff;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #005b96;
-}
-
+        @media (max-width: 768px) {
+            .features-text img {
+                width: 100%;
+            }
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <main>
-        <section class="download-section">
-            <video autoplay muted loop playsinline class="background-video">
-                <source src="https://files.catbox.moe/ykddb8.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-            <div class="content">
-                <img src="/img/logo.png" class="logo">
-                <p class="enhance-text">This is the only Free Menu you will ever need.</p>
-                <div class="download-buttons">
-                    <a href="https://mooclient.lol/menu" class="download-button">
-                        <i class="fas fa-download"></i> Download Menu
-                    </a>
-                    <a href="https://mooclient.lol/template" class="download-button">
-                        <i class="fas fa-download"></i> Download Template
-                    </a>
-                </div>
+    <section class="features-section">
+        <div class="features-content">
+            <div class="features-text">
+                <img src="logo.png" alt="Logo">
+                <p>
+                    Hello, Moo Client users. As you may know, Moo Client has come to an end. We are very sad to announce this, and we just want to say thank you for all the love and support we’ve received from each of you. We hope you enjoyed using Moo Client while it was around.
+                    <br><br>
+                    However, we are excited to announce our new project: Destiny. Destiny will be a paid and free mod menu for Gorilla Tag, offering a greatly improved user experience and powerful, unique mods for you all to enjoy.
+                    <br><br>
+                    We hope you’re as excited about Destiny as we are. Thank you for being part of our journey!
+                    <br><br>
+                    - The Moo Client Team
+                </p>
             </div>
-        </section>
-        
-        <section class="features-section">
-            <div class="features-content">
-                <div class="features-text">
-                    <h2>Moo Client</h2>
-                    <ul>
-                        <li><i class="fas fa-cogs"></i> Customized mods tailored to your preferences.</li>
-                        <li><i class="fas fa-user-friends"></i> Friendly interface for easy navigation.</li>
-                        <li><i class="fas fa-sync"></i> Weekly updates to ensure Moo Client is Undetected!</li>
-                        <li><i class="fas fa-shield-alt"></i> Safe and Secure Mods to protect your account.</li>
-                    </ul>
-                </div>
-                <div class="features-image">
-                    <img src="/img/menu.png" alt="Moo Client Features">
-                </div>
-            </div>
-        </section>
-        
+        </div>
+    </section>
 
-        <section class="reviews-section">
-            <h2>Reviews</h2>
-            <div class="reviews-videos">
-                <div class="video-placeholder">
-                    <iframe src="https://files.catbox.moe/yvux5i.mp4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay" allowfullscreen></iframe>
-                    <p>By DynamicGaming295</p>
-                </div>
-                <div class="video-placeholder">
-                    <iframe src="https://www.youtube.com/embed/uch-keo1xgE?si=rCLRshqk4N5vC7LZ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>By Max Menus</p>
-                </div>
-                <div class="video-placeholder">
-                    <iframe src="https://www.youtube.com/embed/Bympp77JaMA?si=RuJpbwO5UyXjC9qk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>By GuardianGT</p>
-                </div>
-                <div class="video-placeholder">
-                    <iframe src="https://www.youtube.com/embed/uhnizQzU5j4?si=ZnA4Ez6KeMTNUc6m" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>By FrostGT</p>
-                </div>
-                <div class="video-placeholder">
-                    <iframe src="https://www.youtube.com/embed/3gRuCfsfdWI?si=3NxTemHI3TIVLQt4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <p>By ThirteenGT</p>
-                </div>
-            </div>
-            <img src="" class="bottom-right-image">
-        </section>        
-
-        <section class="questions-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-button">
-                        <i class="fas fa-question-circle"></i> What is Moo Client?
-                    </button>
-                    <div class="accordion-content">
-                        <p>Moo Client is a tool designed to enhance your Gorilla Tag gameplay with advanced features and cheats.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-button">
-                        <i class="fas fa-question-circle"></i> Is Moo Client safe to use?
-                    </button>
-                    <div class="accordion-content">
-                        <p>Yes, Moo Client is designed with safety in mind. It is regularly updated to ensure nothing is broken and Mods are Undetected!</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-button">
-                        <i class="fas fa-question-circle"></i> How do I install Moo Client?
-                    </button>
-                    <div class="accordion-content">
-                        <iframe src="https://www.youtube.com/embed/bKIoM5uUYZo?si=PWCd_hFVXglmV4yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-    document.querySelectorAll('a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (!href.startsWith('http') && !this.hasAttribute('download')) {
-                e.preventDefault();
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    window.addEventListener('load', () => {
-        const logo = document.querySelector('.logo');
-        logo.classList.add('bounce');
-    });
-
-    document.querySelectorAll('.accordion-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const accordionContent = button.nextElementSibling;
-            if (accordionContent.style.maxHeight) {
-                accordionContent.style.maxHeight = null;
-                accordionContent.style.opacity = 0;
-                button.classList.remove('active');
-            } else {
-                document.querySelectorAll('.accordion-content').forEach(content => {
-                    content.style.maxHeight = null;
-                    content.style.opacity = 0;
-                });
-                document.querySelectorAll('.accordion-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
-                accordionContent.style.opacity = 1;
-                button.classList.add('active');
-            }
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const images = [
-            "/img/1.png",
-            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/48d4d968-2139-4e2d-9727-adf476d01ce3/dfy2vgp-5906758c-8a96-4b0a-8365-80caa7b2f4eb.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ4ZDRkOTY4LTIxMzktNGUyZC05NzI3LWFkZjQ3NmQwMWNlM1wvZGZ5MnZncC01OTA2NzU4Yy04YTk2LTRiMGEtODM2NS04MGNhYTdiMmY0ZWIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XhRJUck9ur5JvmRLclUsYe9J7Mnzs5JKS3yRcg3NBuw",
-            "/img/2.png",
-            "/img/3.png"
-        ];
-
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        document.querySelector('.bottom-right-image').src = randomImage;
-    });
-    </script>
+    <div class="buttons-container">
+        <a href="https://discord.com/invite/vmprotect" target="_blank" class="button">Destiny Discord</a>
+        <a href="https://destiny.fit" target="_blank" class="button">Destiny Website</a>
+    </div>
 </body>
 </html>
